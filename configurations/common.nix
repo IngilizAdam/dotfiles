@@ -11,7 +11,7 @@
 
     # Setup bootloader
     loader = {
-      systemd-boot-enable = false;
+      systemd-boot.enable = false;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
