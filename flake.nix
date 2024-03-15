@@ -5,9 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }: 
+  outputs = { self, nixpkgs, ... }: 
     let
-      lib = nixpkgs.lib
+      lib = nixpkgs.lib;
     in {
     nixosConfigurations = {
 
