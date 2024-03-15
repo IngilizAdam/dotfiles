@@ -1,37 +1,30 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+
+  # Initialize boot settings
+  boot = {
+    # Support necessary filesystems
+    supportedFilesystems = [
+      "ntfs"
     ];
 
-  # Support necessary file systems
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+    # Setup bootloader
+    loader = {
+      systemd-boot-enable = false;
+      efi = {
+        canTouchVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+        default = "saved";
+      };
+      timeout = 2;
     };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-      default = "saved";
-    };
-    timeout = 2;
-  };
+  }; 
 
-  networking.hostName = "qwerty"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -148,9 +141,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
