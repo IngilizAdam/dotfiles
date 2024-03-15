@@ -13,7 +13,7 @@
     loader = {
       systemd-boot-enable = false;
       efi = {
-        canTouchVariables = true;
+        canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
       grub = {
