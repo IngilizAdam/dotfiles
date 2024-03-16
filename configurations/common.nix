@@ -120,7 +120,8 @@
     git
     home-manager
     wget
-    curl    
+    curl
+    tree    
     gh
     gcc
     gnumake
