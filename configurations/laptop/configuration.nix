@@ -37,4 +37,13 @@
     };
   };
 
+  services.xserver.libinput = {
+    enable = true;
+    touchpad = {
+      additionalOptions = ''
+        libinput "Scrolling Pixel Distance" 10
+      '';
+    };
+  };
+
 }
