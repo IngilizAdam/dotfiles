@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
   };
 
-  outputs = { self, nixpkgs, ... }: 
+  outputs = { self, nixpkgs, home-manager, ... }: 
     let
       lib = nixpkgs.lib;
     in {
