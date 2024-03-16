@@ -12,6 +12,10 @@ switch: check-target-env
 build: check-target-env
 	nixos-rebuild build --flake ./#$(TARGET)
 
+.PHONY: home-manager-switch
+home-manager-switch:
+	home-manager switch --flake ./#$(TARGET)
+
 .PHONY: _check-target-env
 check-target-env:
 ifndef TARGET
