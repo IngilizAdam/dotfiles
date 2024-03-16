@@ -10,7 +10,12 @@
   outputs = { self, nixpkgs, home-manager, ... }: 
     let
       lib = nixpkgs.lib;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in {
+
     nixosConfigurations = {
 
       desktop = lib.nixosSystem {    
@@ -30,5 +35,13 @@
       };
 
     };
+
+    homeConfigurations = {
+      hasan = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
+      };
+    };
+
   };
 }

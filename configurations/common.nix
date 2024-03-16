@@ -117,9 +117,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    git
+    home-manager
     wget
     curl    
-    git
     gh
     gcc
     gnumake
