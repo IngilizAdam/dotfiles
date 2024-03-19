@@ -18,7 +18,7 @@
 
     nixosConfigurations = {
 
-      desktop = lib.nixosSystem {    
+      qwerty = lib.nixosSystem {    
         system = "x86_64-linux";
         modules = [
           ./configurations/desktop/configuration.nix
@@ -26,7 +26,7 @@
         ];
       };
 
-      laptop = lib.nixosSystem {    
+      the-swan = lib.nixosSystem {    
         system = "x86_64-linux";
         modules = [
           ./configurations/laptop/configuration.nix
