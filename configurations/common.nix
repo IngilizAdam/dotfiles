@@ -123,6 +123,7 @@
     curl
     tree    
     gh
+    openvpn
     gcc
     gnumake
     discord
