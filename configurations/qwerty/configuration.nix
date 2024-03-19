@@ -13,5 +13,8 @@
   networking.hostName = "qwerty"; # Define your hostname.
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 22 27014 ];
+  };
 }
