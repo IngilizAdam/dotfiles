@@ -21,7 +21,7 @@
       qwerty = lib.nixosSystem {    
         system = "x86_64-linux";
         modules = [
-          ./configurations/desktop/configuration.nix
+          ./configurations/qwerty/configuration.nix
           ./configurations/common.nix
         ];
       };
@@ -29,7 +29,7 @@
       the-swan = lib.nixosSystem {    
         system = "x86_64-linux";
         modules = [
-          ./configurations/laptop/configuration.nix
+          ./configurations/the-swan/configuration.nix
           ./configurations/common.nix
         ];
       };
