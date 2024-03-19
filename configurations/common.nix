@@ -121,6 +121,7 @@
     curl    
     git
     gh
+    openvpn
     gcc
     gnumake
     discord
