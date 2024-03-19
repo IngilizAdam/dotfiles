@@ -4,20 +4,26 @@ CONFIG_DIR := ./configurations
 all:
 	@echo "Read the makefile";
 
-.PHONY: switch check-target-env
-switch: check-target-env
-	nixos-rebuild switch --flake ./#$(TARGET)
+.PHONY: switch _check-hostname-env
+switch: _check-hostname-env
+	nixos-rebuild switch --flake ./#$(HOSTNAME)
 
-.PHONY: build check-target-env
-build: check-target-env
-	nixos-rebuild build --flake ./#$(TARGET)
+.PHONY: build _check-hostname-env
+build: _check-hostname-env
+	nixos-rebuild build --flake ./#$(HOSTNAME)
 
-.PHONY: home-manager-switch
-home-manager-switch:
-	home-manager switch --flake ./#$(TARGET)
+.PHONY: home-manager-switch _check-user-env
+home-manager-switch: _check-user-env
+	home-manager switch --flake ./#$(USER)
 
-.PHONY: _check-target-env
-check-target-env:
-ifndef TARGET
-	$(error TARGET is not set)
+.PHONY: _check-hostname-env
+_check-hostname-env:
+ifndef HOSTNAME
+	$(error HOSTNAME is not set)
+endif
+
+.PHONY: _check-user-env
+_check-user-env:
+ifndef USER
+	$(error USER is not set)
 endif
