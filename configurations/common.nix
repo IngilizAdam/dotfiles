@@ -124,6 +124,7 @@
     tree    
     gh
     openvpn
+    nmap
     gcc
     gnumake
     discord
