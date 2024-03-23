@@ -17,4 +17,10 @@
     enable = true;
     ports = [ 22 27014 ];
   };
+
+  services.openvpn.servers = {
+    serverVPN = { 
+      config = '' config /home/hasan/openvpn/serverVPN/client.conf '';
+    };
+  };
 }
