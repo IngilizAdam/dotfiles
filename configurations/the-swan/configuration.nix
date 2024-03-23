@@ -45,5 +45,11 @@
       '';
     };
   };
+ 
+  services.openvpn.servers = {
+    serverVPN = {
+      config = '' config /home/hasan/openvpn/serverVPN/client.conf '';
+    };
+  };
 
 }
